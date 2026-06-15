@@ -40,7 +40,7 @@ type HistoricalDataResponse struct {
 	ServerID        string             `json:"serverId"`
 	Symbol          string             `json:"symbol"`
 	Text            string             `json:"text"`
-	PriceFactor     string             `json:"priceFactor"`
+	PriceFactor     string             `json:"priceFactor,string"`
 	StartTime       string             `json:"startTime"`
 	High            string             `json:"high"`
 	Low             string             `json:"low"`
