@@ -16,13 +16,13 @@ type MarketDataService struct {
 
 // HistoricalDataRequest represents request parameters for historical data.
 type HistoricalDataRequest struct {
-	Conid     string
-	Exchange  string
-	Period    string
-	Bar       string
-	StartTime string
+	Conid      string
+	Exchange   string
+	Period     string
+	Bar        string
+	StartTime  string
 	OutsideRth bool
-	Source    string
+	Source     string
 }
 
 // HistoricalDataBar represents a single bar of historical data.
@@ -37,29 +37,29 @@ type HistoricalDataBar struct {
 
 // HistoricalDataResponse represents the response from /iserver/marketdata/history.
 type HistoricalDataResponse struct {
-	ServerID        string             `json:"serverId"`
-	Symbol          string             `json:"symbol"`
-	Text            string             `json:"text"`
-	PriceFactor     string             `json:"priceFactor"`
-	StartTime       string             `json:"startTime"`
-	High            string             `json:"high"`
-	Low             string             `json:"low"`
-	TimePeriod      string             `json:"timePeriod"`
-	BarLength       int                `json:"barLength"`
-	MDAvailability  string             `json:"mdAvailability"`
-	MktDataDelay    int                `json:"mktDataDelay"`
-	OutsideRth      bool               `json:"outsideRth"`
-	TradingDayDuration int             `json:"tradingDayDuration,omitempty"`
-	VolumeFactor    int                `json:"volumeFactor"`
-	PriceDisplayRule int               `json:"priceDisplayRule"`
-	PriceDisplayValue string           `json:"priceDisplayValue"`
-	NegativeCapable  bool               `json:"negativeCapable"`
-	MessageVersion  int                `json:"messageVersion"`
-	Data            []HistoricalDataBar `json:"data"`
-	Points          int                `json:"points"`
-	TravelTime      int                `json:"travelTime"`
-	Direction       int                `json:"direction,omitempty"`
-	ChartPanStartTime string          `json:"chartPanStartTime,omitempty"`
+	ServerID           string              `json:"serverId"`
+	Symbol             string              `json:"symbol"`
+	Text               string              `json:"text"`
+	PriceFactor        int                 `json:"priceFactor"`
+	StartTime          string              `json:"startTime"`
+	High               string              `json:"high"`
+	Low                string              `json:"low"`
+	TimePeriod         string              `json:"timePeriod"`
+	BarLength          int                 `json:"barLength"`
+	MDAvailability     string              `json:"mdAvailability"`
+	MktDataDelay       int                 `json:"mktDataDelay"`
+	OutsideRth         bool                `json:"outsideRth"`
+	TradingDayDuration int                 `json:"tradingDayDuration,omitempty"`
+	VolumeFactor       int                 `json:"volumeFactor"`
+	PriceDisplayRule   int                 `json:"priceDisplayRule"`
+	PriceDisplayValue  string              `json:"priceDisplayValue"`
+	NegativeCapable    bool                `json:"negativeCapable"`
+	MessageVersion     int                 `json:"messageVersion"`
+	Data               []HistoricalDataBar `json:"data"`
+	Points             int                 `json:"points"`
+	TravelTime         int                 `json:"travelTime"`
+	Direction          int                 `json:"direction,omitempty"`
+	ChartPanStartTime  string              `json:"chartPanStartTime,omitempty"`
 }
 
 // MarketDataSnapshotRequest represents request parameters for market data snapshot.
@@ -70,11 +70,11 @@ type MarketDataSnapshotRequest struct {
 
 // MarketDataSnapshot represents market data for a single contract.
 type MarketDataSnapshot struct {
-	Updated   int64             `json:"_updated"`
-	ConidEx   string            `json:"conidEx"`
-	Conid     int              `json:"conid"`
-	ServerID  string            `json:"server_id"`
-	Fields    map[string]string `json:"-"`
+	Updated  int64             `json:"_updated"`
+	ConidEx  string            `json:"conidEx"`
+	Conid    int               `json:"conid"`
+	ServerID string            `json:"server_id"`
+	Fields   map[string]string `json:"-"`
 }
 
 // UnmarshalJSON implements custom JSON unmarshaling for MarketDataSnapshot
@@ -240,18 +240,18 @@ type SnapshotField struct {
 
 // Common snapshot fields for stocks.
 var CommonStockFields = []string{
-	"31",  // Last Price
-	"84",  // Bid Price
-	"86",  // Ask Price
-	"85",  // Ask Size
-	"88",  // Bid Size
-	"70",  // High
-	"71",  // Low
-	"87",  // Volume
-	"82",  // Change
-	"83",  // Change %
-	"55",  // Symbol
-	"58",  // Text (company name)
+	"31", // Last Price
+	"84", // Bid Price
+	"86", // Ask Price
+	"85", // Ask Size
+	"88", // Bid Size
+	"70", // High
+	"71", // Low
+	"87", // Volume
+	"82", // Change
+	"83", // Change %
+	"55", // Symbol
+	"58", // Text (company name)
 }
 
 // MarketDataSnapshotForConid is a helper that creates a single-conid snapshot request.
@@ -404,10 +404,10 @@ type Location struct {
 
 // ScannerRunRequest represents a scanner run request.
 type ScannerRunRequest struct {
-	Instrument string            `json:"instrument"`
-	Location   string            `json:"location"`
-	Type       string            `json:"type"`
-	Filter     []ScannerFilter   `json:"filter,omitempty"`
+	Instrument string          `json:"instrument"`
+	Location   string          `json:"location"`
+	Type       string          `json:"type"`
+	Filter     []ScannerFilter `json:"filter,omitempty"`
 }
 
 // ScannerFilter represents a filter for scanner requests.
@@ -418,22 +418,22 @@ type ScannerFilter struct {
 
 // ScannerContract represents a contract found by scanner.
 type ScannerContract struct {
-	ServerID            string `json:"server_id"`
-	ColumnName         string `json:"column_name,omitempty"`
-	Symbol             string `json:"symbol"`
-	ConidEx            string `json:"conidex"`
-	ConID              int    `json:"con_id"`
+	ServerID              string `json:"server_id"`
+	ColumnName            string `json:"column_name,omitempty"`
+	Symbol                string `json:"symbol"`
+	ConidEx               string `json:"conidex"`
+	ConID                 int    `json:"con_id"`
 	AvailableChartPeriods string `json:"available_chart_periods,omitempty"`
-	CompanyName        string `json:"company_name"`
-	ScanData           string `json:"scan_data,omitempty"`
-	ContractDescription string `json:"contract_description_1"`
-	ListingExchange    string `json:"listing_exchange"`
-	SecType            string `json:"sec_type"`
+	CompanyName           string `json:"company_name"`
+	ScanData              string `json:"scan_data,omitempty"`
+	ContractDescription   string `json:"contract_description_1"`
+	ListingExchange       string `json:"listing_exchange"`
+	SecType               string `json:"sec_type"`
 }
 
 // ScannerResponse represents the response from /iserver/scanner/run.
 type ScannerResponse struct {
-	Contracts           []ScannerContract `json:"contracts"`
+	Contracts          []ScannerContract `json:"contracts"`
 	ScanDataColumnName string            `json:"scan_data_column_name,omitempty"`
 }
 
